@@ -1,5 +1,7 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
+import Homepage from './pages/homepage';
 
 function App() {
   return (
@@ -8,7 +10,9 @@ function App() {
         <Navbar />
       </header>
       <main>
-        <h1>haii</h1>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
       </main>
     </div>
   );

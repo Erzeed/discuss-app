@@ -1,0 +1,19 @@
+.homepage__container {
+    display: flex;
+    width: 100vw;
+}
+
+.homepage__container > .threads__homepage,
+.homepage__container > .leaderboard__homepage {
+    margin: 0 20px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.homepage__container > .threads__homepage {
+    width: 70vw;
+}
+
+.homepage__container > .leaderboard__homepage {
+    width: 30vw;
+}

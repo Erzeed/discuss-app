@@ -1,0 +1,84 @@
+.card__container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: 10px 0;
+}
+.card_threads {
+    width: 90%;
+}
+
+.card__header {
+    display: flex;
+}
+
+.header__img {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.card__header > .header__img > img {
+    width: 45px;
+    height: 45px;
+}
+
+.card__header > .header__img > p {
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.header__time {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.card__body {
+    margin: 10px 0;
+}
+
+.card__body > .body__content {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, .8);
+}
+
+.card__footer,
+.footer__button {
+    display: flex;
+}
+
+.card__footer {
+    align-items: center;
+}
+
+.footer__button > .likeBtn,
+.footer__button > .unlikeBtn {
+    display: flex;
+}
+
+.footer__button > .likeBtn > img,
+.footer__button > .unlikeBtn > img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    display: flex;
+    margin-right: 3px;
+}
+
+.footer__button > .likeBtn > p,
+.footer__button > .unlikeBtn > p {
+    font-size: 1.2em;
+}
+
+.footer__tag {
+    margin-left: 10px;
+    font-size: 1.1em;
+    background-color: #2D4059;
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px;
+}
