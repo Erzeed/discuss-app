@@ -1,0 +1,12 @@
+.kategori__container {
+    padding: 0 10px;
+}
+
+.card__kategori > p {
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, .5);
+    width: max-content;
+    border-radius: 45%;
+    cursor: pointer;
+    margin: 5px 0;
+}

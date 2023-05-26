@@ -2,6 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Homepage from './pages/homepage';
+import Login from './pages/login';
+import './style/style.css';
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
     </div>

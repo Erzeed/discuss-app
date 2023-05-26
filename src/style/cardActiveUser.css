@@ -1,0 +1,30 @@
+.activeuser__container {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.card__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+
+.card__user > .user__img > img {
+    height: 35px;
+    width: 35px;
+}
+
+.card__user > .user__name {
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.card__user > .user__skor {
+    width: 20%;
+}

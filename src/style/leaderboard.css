@@ -1,9 +1,21 @@
-/* .leaderboard__container {
-    background-color: aqua;
-} */
+.leaderboard__container {
+    height: 100%;
+    width: 100%;
+}
 
 .leaderboard__container > h2{
     text-align: center;
     padding: 10px 0;
     color: rgba(0, 0, 0, .8);
+}
+
+.pengguna__aktif {
+    height: 50%;
+    overflow-y: scroll;
+}
+
+.katgori__populer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
 }
