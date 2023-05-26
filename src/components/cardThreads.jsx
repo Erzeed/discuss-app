@@ -1,9 +1,11 @@
 import React from 'react';
 import '../style/cardThreads.css';
+// import { useNavigate } from 'react-router-dom';
 import likeImg from '../asset/icons/upvote.png';
 import unLikeImg from '../asset/icons/downvote.png';
 
-function cardThreads() {
+function cardThreads({ tag }) {
+  // const navigate = useNavigate();
   return (
     <div className="card__container">
       <div className="card_threads">
@@ -21,7 +23,9 @@ function cardThreads() {
         </div>
         <div className="card__body">
           <div className="body__title">
-            <h2>Saya Judul</h2>
+            <h2>
+              <a href="/detailthreads/1">Saya Judul</a>
+            </h2>
           </div>
           <div className="body__content">
             <p>
@@ -41,7 +45,7 @@ function cardThreads() {
               <p>0</p>
             </div>
           </div>
-          <div className="footer__tag">
+          <div className={`footer__tag ${tag}`}>
             <p>#populer</p>
           </div>
         </div>

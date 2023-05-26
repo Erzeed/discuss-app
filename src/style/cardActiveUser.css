@@ -11,6 +11,13 @@
     gap: 10px;
     padding: 0 20px;
     width: 100%;
+    border-bottom: 1px solid rgba(253, 253, 253, 0.2);
+}
+
+.card__user:hover {
+    background-color: #fff;
+    border: none;
+    color: #000;
 }
 
 

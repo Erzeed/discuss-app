@@ -1,13 +1,13 @@
 .navbar {
     width: 100%;
-    background-color: #fff;
+    background-color: #282A3A;
     height: 55px;
-    /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(253, 253, 253, 0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    color: #fff;
 }
 
 .navbar__login > button {

@@ -2,8 +2,12 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    border-bottom: 1px solid rgba(253, 253, 253, 0.2);
     padding: 10px 0;
+    background-color: #282A3A;
+    margin: 10px 0;
+    border-radius: 10px;
+    color: #fff;
 }
 .card_threads {
     width: 90%;
@@ -43,7 +47,7 @@
 .card__body > .body__content {
     margin: 10px 0;
     font-size: 1.2em;
-    color: rgba(0, 0, 0, .8);
+    color: #fff;
 }
 
 .card__footer,
@@ -81,4 +85,8 @@
     color: #fff;
     border-radius: 10px;
     padding: 2px;
+}
+
+.footer__tag.false {
+    display: none;
 }

@@ -1,6 +1,9 @@
 .homepage__container {
     display: flex;
     width: 100vw;
+    height: calc(100vh - 40px);
+    background-color: #03001C;
+    color: #fff;
 }
 
 .homepage__container > .threads__homepage,
@@ -12,8 +15,13 @@
 
 .homepage__container > .threads__homepage {
     width: 70vw;
+    overflow-y: scroll;
 }
 
 .homepage__container > .leaderboard__homepage {
     width: 30vw;
+    background-color: #282A3A;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(253, 253, 253, 0.2);
 }
