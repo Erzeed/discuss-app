@@ -1,4 +1,5 @@
-.container_login {
+.container_login,
+.container_register {
     height: 100vh;
     width: 100vw;
     background: #C33764; 
@@ -9,7 +10,8 @@
     align-items: center;
 }
 
-.container_login > .login {
+.container_login > .login,
+.container_register > .register {
     width: 350px;
     min-height: 350px;
     padding: 40px 20px;
@@ -26,14 +28,16 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.container_login > .login > p {
+.container_login > .login > p,
+.container_register > .register > p {
     text-align: center;
     font-size: 1.5em;
     color: #fff;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-.container_login > .login > form > input {
+.container_login > .login > form > input,
+.container_register > .register > form > input {
     width: 100%;
     height: 40px;
     margin: 10px 0;
@@ -44,12 +48,14 @@
     border: none;
 }
 
-.container_login > .login > form > label {
+.container_login > .login > form > label,
+.container_register > .register > form > label {
     font-size: 12px;
     padding-left: 5px;
 }
 
-.container_login > .login > button {
+.container_login > .login > button,
+.container_register > .register > button {
     height:30px;
     border: none;
     background-color: rgb(240,122,156);
@@ -61,7 +67,8 @@
     margin: 5px 0;
 }
 
-.container_login > .login > button:active{
+.container_login > .login > button:active,
+.container_register > .register > button:active {
     transform: translate(2px, 2px);
     box-shadow: none;
 }
