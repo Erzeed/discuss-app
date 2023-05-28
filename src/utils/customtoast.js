@@ -19,25 +19,26 @@ const error = (title) => {
   customToast.fire({
     title: `${title}`,
     icon: 'error',
+    timer: 2000,
   });
 };
-const loading = (title, data) => {
+
+const loading = (data, message) => {
   customToast
     .fire({
-      title: `${title}`,
+      title: 'Loading',
       didOpen: () => {
         Swal.showLoading();
       },
     })
     .then((result) => {
       if (result.dismiss === Swal.DismissReason.timer) {
-        if (data.error === false) {
-          succes(data.message);
+        if (data === true) {
+          error(message);
         } else {
-          error(data.error);
+          succes(message);
         }
       }
     });
 };
-
 export default loading;
