@@ -15,10 +15,11 @@
 
 .homepage__container > .threads__homepage {
     width: 70vw;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 
 .homepage__container > .leaderboard__homepage {
+    height: 90vh;
     width: 30vw;
     background-color: #282A3A;
     margin: 20px 0;

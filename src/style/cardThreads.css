@@ -23,6 +23,16 @@
     width: 50%;
 }
 
+.header__img > img {
+    border-radius: 50%;
+}
+
+.body__title > h2 > a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .card__header > .header__img > img {
     width: 45px;
     height: 45px;
@@ -48,6 +58,7 @@
     margin: 10px 0;
     font-size: 1.2em;
     color: #fff;
+    min-height: 5vh;
 }
 
 .card__footer,

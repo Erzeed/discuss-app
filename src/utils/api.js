@@ -82,6 +82,22 @@ const getApi = (() => {
     return user;
   }
 
+  async function getAllUsers() {
+    const response = await fetch(`${BASE_URL}/users`);
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { users } } = responseJson;
+
+    return users;
+  }
+
   async function getAllThreads() {
     const response = await fetch(`${BASE_URL}/threads`);
 
@@ -93,11 +109,85 @@ const getApi = (() => {
       throw new Error(message);
     }
 
-    const { data: { talks } } = responseJson;
+    const { data: { threads } } = responseJson;
 
-    return talks;
+    return threads;
   }
 
+  async function getThreadDetail(id) {
+    const response = await fetch(`${BASE_URL}/threads/${id}`);
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { detailThread } } = responseJson;
+
+    return detailThread;
+  }
+
+  async function createThread({ text, replyTo = '' }) {
+    const response = await fetchWithAuth(`${BASE_URL}/threads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text,
+        replyTo,
+      }),
+    });
+
+    const responseJson = await response.json();
+    console.log(responseJson);
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { talk } } = responseJson;
+
+    return talk;
+  }
+
+  async function toggleLikeThread(id) {
+    const response = await fetchWithAuth(`${BASE_URL}/threads/${id}/up-vote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const responseJson = await response.json();
+    console.log(responseJson);
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+  }
+
+  async function toggleUnLikeThread(id) {
+    const response = await fetchWithAuth(`${BASE_URL}/threads/${id}/down-vote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const responseJson = await response.json();
+    console.log(responseJson);
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+  }
   return {
     getAccessToken,
     putAccessToken,
@@ -105,6 +195,11 @@ const getApi = (() => {
     login,
     getOwnProfile,
     getAllThreads,
+    getThreadDetail,
+    createThread,
+    toggleLikeThread,
+    toggleUnLikeThread,
+    getAllUsers,
   };
 })();
 
