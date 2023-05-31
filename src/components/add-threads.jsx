@@ -13,6 +13,10 @@ function AddThreads() {
         </div>
       </div>
       <div className="input__threads">
+        <div className="threads__titleandcategory">
+          <input type="text" placeholder="Title" />
+          <input type="text" placeholder="Category" />
+        </div>
         <textarea name="input_thrads" id="input_thrads" cols="20" rows="10" placeholder="What's Happening" />
       </div>
       <div className="button__threads">

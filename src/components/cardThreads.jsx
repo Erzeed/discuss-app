@@ -18,19 +18,17 @@ function cardThreads({
     return `${cutText}...`;
   }
 
-  console.log(user);
-
   return (
     <div className="card__container">
       <div className="card_threads">
         <div className="card__header">
-          {/* <div className="header__img">
+          <div className="header__img">
             <img
               src={user.avatar}
               alt={user.name}
             />
             <p>{user.name}</p>
-          </div> */}
+          </div>
           <div className="header__time">
             <p>{postedAt(createdAt)}</p>
           </div>
@@ -42,22 +40,22 @@ function cardThreads({
             </h2>
           </div>
           <div className="body__content">
-            {/* <div dangerouslySetInnerHTML={{ __html: cutTextWithDots(body, 350) }} /> */}
+            <div dangerouslySetInnerHTML={{ __html: cutTextWithDots(body, 350) }} />
           </div>
         </div>
         <div className="card__footer">
           <div className="footer__button">
-            {/* <div className="likeBtn">
+            <div className="likeBtn">
               <img src={likeImg} alt="like" />
               <p>{upVotesBy.length}</p>
             </div>
             <div className="unlikeBtn">
               <img src={unLikeImg} alt="unlike" />
               <p>{downVotesBy.length}</p>
-            </div> */}
+            </div>
           </div>
           <div className={`footer__tag ${category}`}>
-            <p>#populer</p>
+            <p>{category === undefined ? '' : `#${category}`}</p>
           </div>
         </div>
       </div>

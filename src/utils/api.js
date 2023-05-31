@@ -130,6 +130,22 @@ const getApi = (() => {
     return detailThread;
   }
 
+  async function seeLeaderboard() {
+    const response = await fetch(`${BASE_URL}/leaderboards`);
+
+    const responseJson = await response.json();
+    console.log(responseJson);
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { leaderboards } } = responseJson;
+
+    return leaderboards;
+  }
   async function createThread({ text, replyTo = '' }) {
     const response = await fetchWithAuth(`${BASE_URL}/threads`, {
       method: 'POST',
@@ -200,6 +216,7 @@ const getApi = (() => {
     toggleLikeThread,
     toggleUnLikeThread,
     getAllUsers,
+    seeLeaderboard,
   };
 })();
 

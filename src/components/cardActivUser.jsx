@@ -1,19 +1,20 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import '../style/cardActiveUser.css';
 
-function ActiveUser() {
+function ActiveUser({ score, user, rank }) {
   return (
     <div className="activeuser__container">
       <div className="card__user">
-        <p>1</p>
+        <p>{rank}</p>
         <div className="user__img">
-          <img src="https://ui-avatars.com/api/?background=random&name=reza&rounded=true" alt="" />
+          <img src={user.avatar} alt={user.name} />
         </div>
         <div className="user__name">
-          <p>Feizal Reza</p>
+          <p>{user.name}</p>
         </div>
         <div className="user__skor">
-          <p>100</p>
+          <p>{score}</p>
         </div>
       </div>
     </div>

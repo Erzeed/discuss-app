@@ -12,6 +12,7 @@ function detailThreads() {
   const { id } = useParams();
   const {
     threadDetail = null,
+    // eslint-disable-next-line no-unused-vars
     authUser,
   } = useSelector((states) => states);
   const dispatch = useDispatch();
@@ -39,8 +40,8 @@ function detailThreads() {
   const changeNameOwnerToUser = comments.map((data) => ({
     ...data,
     user: data.owner,
+    body: data.content,
   }));
-
   return (
     <div className="container__detail">
       <div className="detail__post">
@@ -72,7 +73,11 @@ function detailThreads() {
           </div>
         </div>
         <div className="comment__container">
-          <CardThreads key={id} {...changeNameOwnerToUser} />
+          {
+            changeNameOwnerToUser.map((data) => (
+              <CardThreads key={data.id} {...data} />
+            ))
+          }
         </div>
       </div>
     </div>
