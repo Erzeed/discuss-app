@@ -20,12 +20,12 @@ function Homepage() {
 
   useEffect(() => {
     dispatch(asyncPopulateUsersAndThreads());
-    dispatch(asyncSeeLeaderboard());
+    // dispatch(asyncSeeLeaderboard());
   }, [dispatch]);
 
-  // const onAddThread = (text) => {
-  //   dispatch(asyncAddThread({ text }));
-  // };
+  const onAddThread = ({ title, body, category }) => {
+    dispatch(asyncAddThread({ title, body, category }));
+  };
 
   // const onLike = (id) => {
   //   // @TODO: dispatch async action to toggle like talk
@@ -40,18 +40,19 @@ function Homepage() {
     ...data,
     rank: index + 1,
   }));
-  const categoryPopuler = threadList.map((data, index) => ({
-    id: index + 1,
-    category: data.category,
-  }));
+  // const categoryPopuler = threadList.map((data, index) => ({
+  //   id: index + 1,
+  //   category: data.category,
+  // }));
+  console.log(threadList);
   return (
     <div className="homepage__container">
       <div className="threads__homepage">
-        <AddThreads />
-        <AllThreads threads={threadList} />
+        <AddThreads addThread={onAddThread} />
+        {/* <AllThreads threads={threadList} /> */}
       </div>
       <div className="leaderboard__homepage">
-        <Leaderboard leaderData={leaderList} category={categoryPopuler} />
+        {/* <Leaderboard leaderData={leaderList} category={categoryPopuler} /> */}
       </div>
     </div>
   );

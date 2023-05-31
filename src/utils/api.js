@@ -146,15 +146,16 @@ const getApi = (() => {
 
     return leaderboards;
   }
-  async function createThread({ text, replyTo = '' }) {
+  async function createThread({ title, body, category }) {
     const response = await fetchWithAuth(`${BASE_URL}/threads`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        text,
-        replyTo,
+        title,
+        body,
+        category,
       }),
     });
 

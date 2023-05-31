@@ -13,8 +13,8 @@ function asyncPopulateUsersAndThreads() {
       const threads = await api.getAllThreads();
       const authUser = await api.getOwnProfile();
 
-      dispatch(receiveUsersActionCreator(users));
       dispatch(receiveThreadsActionCreator(threads));
+      dispatch(receiveUsersActionCreator(users));
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
       alert(error.message);

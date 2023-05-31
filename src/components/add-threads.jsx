@@ -1,7 +1,24 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
 import '../style/addThreads.css';
 
-function AddThreads() {
+function AddThreads({ addThread }) {
+  const [inputData, setInput] = useState({
+    title: '',
+    body: '',
+    category: '',
+  });
+
+  function setInputData(data) {
+    setInput({
+      ...inputData,
+      [data.target.id]: data.target.value,
+    });
+  }
+
+  function onHandleSubmit() {
+    addThread(inputData);
+  }
   return (
     <div className="threads__container">
       <div className="header__threads">
@@ -14,13 +31,13 @@ function AddThreads() {
       </div>
       <div className="input__threads">
         <div className="threads__titleandcategory">
-          <input type="text" placeholder="Title" />
-          <input type="text" placeholder="Category" />
+          <input type="text" id="title" placeholder="Title" onChange={(data) => setInputData(data)} />
+          <input type="text" id="category" placeholder="Category" onChange={(data) => setInputData(data)} />
         </div>
-        <textarea name="input_thrads" id="input_thrads" cols="20" rows="10" placeholder="What's Happening" />
+        <textarea name="input_thrads" id="body" cols="20" rows="10" placeholder="What's Happening" onChange={(data) => setInputData(data)} />
       </div>
       <div className="button__threads">
-        <button type="button">Post</button>
+        <button onClick={onHandleSubmit} type="button">Post</button>
       </div>
     </div>
   );

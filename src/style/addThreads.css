@@ -9,6 +9,7 @@
     background-color: #282A3A;
     border-radius: 10px;
     margin: 15px 0;
+    color: #fff;
 }
 
 .input__threads {
@@ -25,6 +26,7 @@
     padding: 10px;
     resize: none;
     background-color: #33364f;
+    color: #fff;
 }
 
 .input__threads > .threads__titleandcategory > * {
@@ -57,7 +59,8 @@
     cursor: pointer;
 }
 
-.input__threads > textarea:focus {
+.input__threads > textarea:focus,
+.input__threads > .threads__titleandcategory > *:focus {
     outline: none;
 }
 

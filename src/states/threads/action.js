@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import loading from '../../utils/customtoast';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -36,14 +37,14 @@ function toggleLikeThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function asyncAddThread({ text, replyTo = '' }) {
+function asyncAddThread({ title, body, category }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const talk = await api.createThread({ text, replyTo });
+      const talk = await api.createThread({ title, body, category });
       dispatch(addThreadActionCreator(talk));
     } catch (error) {
-      alert(error.message);
+      loading(true, error.message);
     }
     dispatch(hideLoading());
   };
