@@ -1,14 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import '../style/detailThreads.css';
 import CardThreads from '../components/cardThreads';
-import { asyncReceiveThreadDetail } from '../states/threadsDetail/action';
+import { asyncAddComments, asyncReceiveThreadDetail } from '../states/threadsDetail/action';
 import postedAt from '../utils/postAt';
 
 function detailThreads() {
+  const [inputContent, setInputContent] = useState();
   const { id } = useParams();
   const {
     threadDetail = null,
@@ -19,17 +20,25 @@ function detailThreads() {
 
   useEffect(() => {
     dispatch(asyncReceiveThreadDetail(id));
-  }, [id, dispatch]);
+    console.log('haii');
+  }, [id, dispatch, inputContent]);
 
   // const onLikeTalk = () => {
   //   // @TODO: dispatch async action to toggle like talk detail
   //   dispatch(asyncToogleLikeTalkDetail());
   // };
 
-  // const onReplyTalk = (text) => {
-  //   // @TODO: dispatch async action to add reply talk
-  //   dispatch(asyncAddTalk({ text, replyTo: id }));
-  // };
+  const onHandleChange = (text) => {
+    setInputContent({
+      ...inputContent,
+      [text.target.id]: text.target.value,
+    });
+  };
+
+  const onReplyComment = () => {
+    const { content } = inputContent;
+    dispatch(asyncAddComments({ content, id }));
+  };
 
   if (!threadDetail) {
     return null;
@@ -65,11 +74,11 @@ function detailThreads() {
         <h3>{`Koments ${comments.length}`}</h3>
         <div className="input__comment">
           <form action="">
-            <textarea name="comment" id="commment" placeholder="Berikan Komentar" />
+            <textarea name="comment" id="content" placeholder="Berikan Komentar" onChange={(txt) => onHandleChange(txt)} />
           </form>
           <div className="btn__input">
             <button className="cancel" type="submit">Batal</button>
-            <button className="post" type="submit">Komentar</button>
+            <button onClick={onReplyComment} className="post" type="submit">Komentar</button>
           </div>
         </div>
         <div className="comment__container">

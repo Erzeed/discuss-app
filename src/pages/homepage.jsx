@@ -20,7 +20,7 @@ function Homepage() {
 
   useEffect(() => {
     dispatch(asyncPopulateUsersAndThreads());
-    // dispatch(asyncSeeLeaderboard());
+    dispatch(asyncSeeLeaderboard());
   }, [dispatch]);
 
   const onAddThread = ({ title, body, category }) => {
@@ -36,23 +36,25 @@ function Homepage() {
     user: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
+
   const leaderList = leaderboard.map((data, index = 1) => ({
     ...data,
     rank: index + 1,
   }));
-  // const categoryPopuler = threadList.map((data, index) => ({
-  //   id: index + 1,
-  //   category: data.category,
-  // }));
+
+  const categoryPopuler = threadList.map((data, index) => ({
+    id: index + 1,
+    category: data.category,
+  }));
   console.log(threadList);
   return (
     <div className="homepage__container">
       <div className="threads__homepage">
         <AddThreads addThread={onAddThread} />
-        {/* <AllThreads threads={threadList} /> */}
+        <AllThreads threads={threadList} />
       </div>
       <div className="leaderboard__homepage">
-        {/* <Leaderboard leaderData={leaderList} category={categoryPopuler} /> */}
+        <Leaderboard leaderData={leaderList} category={categoryPopuler} />
       </div>
     </div>
   );

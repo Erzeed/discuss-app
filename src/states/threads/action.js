@@ -43,6 +43,7 @@ function asyncAddThread({ title, body, category }) {
     try {
       const talk = await api.createThread({ title, body, category });
       dispatch(addThreadActionCreator(talk));
+      loading(false, 'Succes');
     } catch (error) {
       loading(true, error.message);
     }
@@ -58,7 +59,7 @@ function asyncToogleLikeThreads(threadId) {
     try {
       await api.toggleLikeTalk(threadId);
     } catch (error) {
-      alert(error.message);
+      loading(true, error.message);
       dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
     }
     dispatch(hideLoading());

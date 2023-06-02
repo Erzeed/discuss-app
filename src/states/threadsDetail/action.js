@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
+import loading from '../../utils/customtoast';
 
 const ActionType = {
   RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',
@@ -39,7 +40,23 @@ function asyncReceiveThreadDetail(threadId) {
       const threadDetail = await api.getThreadDetail(threadId);
       dispatch(receiveThreadDetailActionCreator(threadDetail));
     } catch (error) {
-      alert(error.message);
+      loading(true, error.message);
+    }
+    dispatch(hideLoading());
+  };
+}
+
+function asyncAddComments({ content, id }) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    try {
+      await api.createComments({ content, id });
+      const threadDetail = await api.getThreadDetail(id);
+
+      dispatch(receiveThreadDetailActionCreator(threadDetail));
+      loading(false, 'Succes');
+    } catch (error) {
+      loading(true, error.message);
     }
     dispatch(hideLoading());
   };
@@ -53,7 +70,7 @@ function asyncToogleLikeThreadDetail() {
     try {
       await api.toggleLikeTalk(talkDetail.id);
     } catch (error) {
-      alert(error.message);
+      loading(true, error.message);
     }
     dispatch(hideLoading());
   };
@@ -66,4 +83,5 @@ export {
   toggleLikeThreadDetailActionCreator,
   receiveThreadDetailActionCreator,
   asyncToogleLikeThreadDetail,
+  asyncAddComments,
 };
