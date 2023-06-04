@@ -1,11 +1,15 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import '../style/login.css';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import useDataInput from '../hooks/loginUser';
 import { asyncRegisterUser } from '../states/user/action';
 
 function register() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [dataUser, setInputData] = useDataInput();
 
   const onHandleChange = (data) => {
@@ -15,6 +19,10 @@ function register() {
   const onRegister = () => {
     const { name, email, password } = dataUser;
     dispatch(asyncRegisterUser({ name, email, password }));
+  };
+
+  const onSudahPunyaAkun = () => {
+    navigate('/');
   };
 
   return (
@@ -46,9 +54,9 @@ function register() {
         </form>
         <button onClick={onRegister} type="button">Register</button>
         <div className="loginAccount">
-          {/* <p onClick={onRegister}>
-            {locale === 'id' ? 'Daftar Sekarang' : 'Register Now'}
-          </p> */}
+          <p onClick={onSudahPunyaAkun}>
+            Sudah punya akun
+          </p>
         </div>
       </div>
     </div>

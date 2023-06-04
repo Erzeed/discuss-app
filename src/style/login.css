@@ -72,3 +72,8 @@
     transform: translate(2px, 2px);
     box-shadow: none;
 }
+
+.loginAccount {
+    color: #fff;
+    cursor: pointer;
+}

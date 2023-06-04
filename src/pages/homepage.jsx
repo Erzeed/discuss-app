@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import '../style/homepage.css';
 import AddThreads from '../components/add-threads';
 import AllThreads from '../components/allThreads';
@@ -17,7 +16,6 @@ function Homepage() {
     leaderboard,
     categoryThreads = [],
   } = useSelector((states) => states);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,10 +37,6 @@ function Homepage() {
     ...data,
     rank: index + 1,
   }));
-
-  if (authUser === null) {
-    navigate('/login');
-  }
 
   return (
     <div className="homepage__container">

@@ -22,9 +22,6 @@ function AddThreads({ addThread }) {
   return (
     <div className="threads__container">
       <div className="header__threads">
-        <div className="header__avatar">
-          <img src="https://ui-avatars.com/api/?background=random&name=reza&rounded=true" alt="" />
-        </div>
         <div className="header__title">
           <h2>Home</h2>
         </div>

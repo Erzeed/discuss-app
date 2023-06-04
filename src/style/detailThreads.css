@@ -1,5 +1,6 @@
 .container__detail {
     width: 100vw;
+    height: 100vh;
     background-color: #03001C;
     display: flex;
     flex-direction: column;
@@ -82,6 +83,7 @@
     resize: none;
     font-size: 1.2em;
     background-color: #33364f;
+    color: #fff;
 }
 
 .input__comment > form > textarea:focus {

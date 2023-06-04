@@ -5,6 +5,7 @@ import { receiveUsersActionCreator } from '../user/action';
 import { receiveThreadsActionCreator } from '../threads/action';
 import { setAuthUserActionCreator } from '../authUser/action';
 import { receiveUsersCategory } from '../category/action';
+import loading from '../../utils/customtoast';
 
 function asyncPopulateUsersAndThreads() {
   return async (dispatch) => {
@@ -19,7 +20,7 @@ function asyncPopulateUsersAndThreads() {
       dispatch(setAuthUserActionCreator(authUser));
       dispatch(receiveUsersCategory(threads));
     } catch (error) {
-      alert(error.message);
+      loading(false, error.message);
     }
     dispatch(hideLoading());
   };

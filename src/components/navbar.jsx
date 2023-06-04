@@ -1,13 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/navbar.css';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncUnsetAuthUser } from '../states/authUser/action';
 
 function Navbar() {
-  const navigate = useNavigate();
+  const {
+    authUser,
+  } = useSelector((states) => states);
+  const [checkUser, setCheckUser] = useState(null);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (authUser !== null) {
+      setCheckUser('Log Out');
+    } else {
+      setCheckUser('Login');
+    }
+  }, [dispatch, authUser]);
 
   const onClickLogin = () => {
-    navigate('/login');
+    if (checkUser === 'Log Out') {
+      dispatch(asyncUnsetAuthUser());
+    }
   };
   return (
     <div className="navbar">
@@ -15,7 +30,13 @@ function Navbar() {
         <h1>Discuss</h1>
       </div>
       <div className="navbar__login">
-        <button onClick={onClickLogin} type="button">Login</button>
+        <button
+          onClick={onClickLogin}
+          type="button"
+          className={checkUser}
+        >
+          {checkUser}
+        </button>
       </div>
     </div>
   );

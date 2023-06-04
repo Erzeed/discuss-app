@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import '../style/cardThreads.css';
-// import { useNavigate } from 'react-router-dom';
 import likeImg from '../asset/icons/upvote.png';
 import unLikeImg from '../asset/icons/downvote.png';
 import postedAt from '../utils/postAt';

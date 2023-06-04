@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
 import '../style/login.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,13 +19,18 @@ function login() {
 
   useEffect(() => {
     if (authUser) {
-      navigate('/');
+      navigate('/home');
     }
   }, [authUser]);
 
   const onLogin = () => {
     const { email, password } = dataUser;
     dispatch(asyncSetAuthUser({ email, password }));
+    navigate('/home');
+  };
+
+  const onRegister = () => {
+    navigate('/register');
   };
 
   return (
@@ -48,9 +55,9 @@ function login() {
         </form>
         <button onClick={onLogin} type="button">Login</button>
         <div className="loginAccount">
-          {/* <p onClick={onRegister}>
-            {locale === 'id' ? 'Daftar Sekarang' : 'Register Now'}
-          </p> */}
+          <p onClick={onRegister}>
+            Register Sekarang
+          </p>
         </div>
       </div>
     </div>
