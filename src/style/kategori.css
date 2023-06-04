@@ -2,7 +2,7 @@
     padding: 0 10px;
 }
 
-.card__kategori > p {
+.card__kategori > button {
     padding: 5px 10px;
     border: 1px solid rgba(0, 0, 0, .5);
     width: fit-content;
@@ -12,7 +12,8 @@
     background-color: #2D4059;
 }
 
-.card__kategori > p:hover {
+.card__kategori > button:hover,
+.card__kategori > button.active {
     background-color: #fff;
     color: #000;
 }

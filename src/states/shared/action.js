@@ -4,6 +4,7 @@ import api from '../../utils/api';
 import { receiveUsersActionCreator } from '../user/action';
 import { receiveThreadsActionCreator } from '../threads/action';
 import { setAuthUserActionCreator } from '../authUser/action';
+import { receiveUsersCategory } from '../category/action';
 
 function asyncPopulateUsersAndThreads() {
   return async (dispatch) => {
@@ -16,6 +17,7 @@ function asyncPopulateUsersAndThreads() {
       dispatch(receiveThreadsActionCreator(threads));
       dispatch(receiveUsersActionCreator(users));
       dispatch(setAuthUserActionCreator(authUser));
+      dispatch(receiveUsersCategory(threads));
     } catch (error) {
       alert(error.message);
     }

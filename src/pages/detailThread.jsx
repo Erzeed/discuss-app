@@ -13,20 +13,12 @@ function detailThreads() {
   const { id } = useParams();
   const {
     threadDetail = null,
-    // eslint-disable-next-line no-unused-vars
-    authUser,
   } = useSelector((states) => states);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(asyncReceiveThreadDetail(id));
-    console.log('haii');
-  }, [id, dispatch, inputContent]);
-
-  // const onLikeTalk = () => {
-  //   // @TODO: dispatch async action to toggle like talk detail
-  //   dispatch(asyncToogleLikeTalkDetail());
-  // };
+  }, [id, dispatch]);
 
   const onHandleChange = (text) => {
     setInputContent({

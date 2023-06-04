@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import '../style/homepage.css';
 import AddThreads from '../components/add-threads';
 import AllThreads from '../components/allThreads';
@@ -14,8 +15,9 @@ function Homepage() {
     users = [],
     authUser,
     leaderboard,
+    categoryThreads = [],
   } = useSelector((states) => states);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,10 +29,6 @@ function Homepage() {
     dispatch(asyncAddThread({ title, body, category }));
   };
 
-  // const onLike = (id) => {
-  //   // @TODO: dispatch async action to toggle like talk
-  //   dispatch(asyncToogleLikeTalk(id));
-  // };
   const threadList = threads.map((thread) => ({
     ...thread,
     user: users.find((user) => user.id === thread.ownerId),
@@ -42,11 +40,10 @@ function Homepage() {
     rank: index + 1,
   }));
 
-  const categoryPopuler = threadList.map((data, index) => ({
-    id: index + 1,
-    category: data.category,
-  }));
-  console.log(threadList);
+  if (authUser === null) {
+    navigate('/login');
+  }
+
   return (
     <div className="homepage__container">
       <div className="threads__homepage">
@@ -54,7 +51,7 @@ function Homepage() {
         <AllThreads threads={threadList} />
       </div>
       <div className="leaderboard__homepage">
-        <Leaderboard leaderData={leaderList} category={categoryPopuler} />
+        <Leaderboard leaderData={leaderList} category={categoryThreads} />
       </div>
     </div>
   );

@@ -18,6 +18,14 @@ function threadReducer(threads = [], action = {}) {
         }
         return thread;
       });
+    case ActionType.FILTER_CATEGORY:
+      // eslint-disable-next-line array-callback-return, consistent-return
+      return threads.map((thread) => {
+        if (thread.category === action.payload.category) {
+          return thread;
+        }
+        // return thread;
+      }).filter((thread) => thread !== undefined);
     default:
       return threads;
   }

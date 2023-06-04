@@ -7,6 +7,7 @@ const ActionType = {
   RECEIVE_THREADS: 'RECEIVE_THREADS',
   ADD_THREAD: 'ADD_THREAD',
   TOGGLE_LIKE_THREAD: 'TOGGLE_LIKE_THREAD',
+  FILTER_CATEGORY: 'FILTER_CATEGORY',
 };
 
 function receiveThreadsActionCreator(threads) {
@@ -27,6 +28,14 @@ function addThreadActionCreator(thread) {
   };
 }
 
+function addThreadActionFilter(category) {
+  return {
+    type: ActionType.FILTER_CATEGORY,
+    payload: {
+      category,
+    },
+  };
+}
 function toggleLikeThreadActionCreator({ threadId, userId }) {
   return {
     type: ActionType.TOGGLE_LIKE_THREAD,
@@ -47,6 +56,14 @@ function asyncAddThread({ title, body, category }) {
     } catch (error) {
       loading(true, error.message);
     }
+    dispatch(hideLoading());
+  };
+}
+
+function filterByCategory(category) {
+  return async (dispatch) => {
+    dispatch(showLoading());
+    dispatch(addThreadActionFilter(category));
     dispatch(hideLoading());
   };
 }
@@ -73,4 +90,5 @@ export {
   toggleLikeThreadActionCreator,
   asyncAddThread,
   asyncToogleLikeThreads,
+  filterByCategory,
 };

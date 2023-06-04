@@ -102,7 +102,7 @@ const getApi = (() => {
     const response = await fetch(`${BASE_URL}/threads`);
 
     const responseJson = await response.json();
-    console.log(responseJson);
+
     const { status, message } = responseJson;
 
     if (status !== 'success') {
@@ -134,7 +134,6 @@ const getApi = (() => {
     const response = await fetch(`${BASE_URL}/leaderboards`);
 
     const responseJson = await response.json();
-    console.log(responseJson);
 
     const { status, message } = responseJson;
 
@@ -202,7 +201,7 @@ const getApi = (() => {
     });
 
     const responseJson = await response.json();
-    console.log(responseJson);
+
     const { status, message } = responseJson;
 
     if (status !== 'success') {
@@ -219,7 +218,7 @@ const getApi = (() => {
     });
 
     const responseJson = await response.json();
-    console.log(responseJson);
+
     const { status, message } = responseJson;
 
     if (status !== 'success') {
