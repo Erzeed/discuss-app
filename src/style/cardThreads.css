@@ -92,10 +92,17 @@
 .footer__tag {
     margin-left: 10px;
     font-size: 1.1em;
-    background-color: #2D4059;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer__tag > p {
+    background-color: #2D4059;
     border-radius: 10px;
-    padding: 2px;
+    padding: 2px 5px;
+    width: fit-content;
 }
 
 .footer__tag.false {

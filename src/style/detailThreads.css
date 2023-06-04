@@ -54,10 +54,14 @@
 }
 
 .post__body {
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 1.2em;
     letter-spacing: .5px;
     width: 80vw;
+}
+
+.post__body > .body__title {
+    margin: 10px 0;
 }
 
 .detail__comment {

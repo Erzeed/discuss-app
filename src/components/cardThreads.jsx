@@ -1,13 +1,14 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../style/cardThreads.css';
 import likeImg from '../asset/icons/upvote.png';
 import unLikeImg from '../asset/icons/downvote.png';
 import postedAt from '../utils/postAt';
 
 function cardThreads({
-  id, title, category, user, upVotesBy, downVotesBy, createdAt, body,
+  id, title, category, user, upVotesBy, downVotesBy, createdAt, body, totalComments,
 }) {
   function cutTextWithDots(text, maxLength) {
     if (text.length <= maxLength) {
@@ -35,7 +36,7 @@ function cardThreads({
         <div className="card__body">
           <div className="body__title">
             <h2>
-              <a href={`/detailthreads/${id}`}>{title}</a>
+              <Link to={`/detailthreads/${id}`}>{title}</Link>
             </h2>
           </div>
           <div className="body__content">
@@ -55,6 +56,7 @@ function cardThreads({
           </div>
           <div className={`footer__tag ${category}`}>
             <p>{category === undefined ? '' : `#${category}`}</p>
+            <p>{`${totalComments} Komentar`}</p>
           </div>
         </div>
       </div>

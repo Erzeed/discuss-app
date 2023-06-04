@@ -36,7 +36,7 @@ function detailThreads() {
     return null;
   }
   const {
-    category, createdAt, body, comments, owner,
+    category, createdAt, body, comments, owner, title,
   } = threadDetail;
   const changeNameOwnerToUser = comments.map((data) => ({
     ...data,
@@ -59,6 +59,9 @@ function detailThreads() {
           </div>
         </div>
         <div className="post__body">
+          <div className="body__title">
+            <h2>{title}</h2>
+          </div>
           <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
       </div>
