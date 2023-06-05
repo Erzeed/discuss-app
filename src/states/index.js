@@ -2,13 +2,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { loadingBarReducer } from 'react-redux-loading-bar';
-import authUserReducer from './authUser/reducer';
-import isPreloadReducer from './isPreload/reducer';
-import threadDetailReducer from './threadsDetail/reducer';
-import threadReducer from './threads/reducer';
-import usersReducer from './user/reducer';
-import leaderboardReducer from './leaderboard/reducer';
-import categoryReducer from './category/reducer';
+import authUserReducer from './authUser/reducer.js';
+import isPreloadReducer from './isPreload/reducer.js';
+import threadDetailReducer from './threadsDetail/reducer.js';
+import threadReducer from './threads/reducer.js';
+import usersReducer from './user/reducer.js';
+import leaderboardReducer from './leaderboard/reducer.js';
+import categoryReducer from './category/reducer.js';
 
 const store = configureStore({
   reducer: {

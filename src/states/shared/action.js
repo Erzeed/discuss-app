@@ -1,11 +1,11 @@
+/* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
-import { receiveUsersActionCreator } from '../user/action';
-import { receiveThreadsActionCreator } from '../threads/action';
-import { setAuthUserActionCreator } from '../authUser/action';
-import { receiveUsersCategory } from '../category/action';
-import loading from '../../utils/customtoast';
+import api from '../../utils/api.js';
+import { receiveUsersActionCreator } from '../user/action.js';
+import { receiveThreadsActionCreator } from '../threads/action.js';
+import { setAuthUserActionCreator } from '../authUser/action.js';
+import { receiveUsersCategory } from '../category/action.js';
 
 function asyncPopulateUsersAndThreads() {
   return async (dispatch) => {
@@ -20,7 +20,8 @@ function asyncPopulateUsersAndThreads() {
       dispatch(setAuthUserActionCreator(authUser));
       dispatch(receiveUsersCategory(threads));
     } catch (error) {
-      loading(false, error.message);
+      // eslint-disable-next-line no-alert
+      window.alert(error.message);
     }
     dispatch(hideLoading());
   };

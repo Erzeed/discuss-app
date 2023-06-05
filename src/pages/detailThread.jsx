@@ -1,15 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import '../style/detailThreads.css';
 import CardThreads from '../components/cardThreads';
 import { asyncAddComments, asyncReceiveThreadDetail } from '../states/threadsDetail/action';
 import postedAt from '../utils/postAt';
+import AddComment from '../components/add-comment';
 
 function detailThreads() {
-  const [inputContent, setInputContent] = useState();
   const { id } = useParams();
   const {
     threadDetail = null,
@@ -20,15 +20,7 @@ function detailThreads() {
     dispatch(asyncReceiveThreadDetail(id));
   }, [id, dispatch]);
 
-  const onHandleChange = (text) => {
-    setInputContent({
-      ...inputContent,
-      [text.target.id]: text.target.value,
-    });
-  };
-
-  const onReplyComment = () => {
-    const { content } = inputContent;
+  const onHandleSubmit = ({ content }) => {
     dispatch(asyncAddComments({ content, id }));
   };
 
@@ -67,15 +59,7 @@ function detailThreads() {
       </div>
       <div className="detail__comment">
         <h3>{`Koments ${comments.length}`}</h3>
-        <div className="input__comment">
-          <form action="">
-            <textarea name="comment" id="content" placeholder="Berikan Komentar" onChange={(txt) => onHandleChange(txt)} />
-          </form>
-          <div className="btn__input">
-            <button className="cancel" type="submit">Batal</button>
-            <button onClick={onReplyComment} className="post" type="submit">Komentar</button>
-          </div>
-        </div>
+        <AddComment addKoment={onHandleSubmit} />
         <div className="comment__container">
           {
             changeNameOwnerToUser.map((data) => (

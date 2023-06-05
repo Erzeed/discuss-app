@@ -1,7 +1,8 @@
+/* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
-import loading from '../../utils/customtoast';
+import api from '../../utils/api.js';
+import loading from '../../utils/customtoast.js';
 
 const ActionType = {
   RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',

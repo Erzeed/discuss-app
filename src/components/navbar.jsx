@@ -15,7 +15,7 @@ function Navbar() {
     if (authUser !== null) {
       setCheckUser('Log Out');
     } else {
-      setCheckUser('Login');
+      setCheckUser('SignIn');
     }
   }, [dispatch, authUser]);
 

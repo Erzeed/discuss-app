@@ -31,7 +31,7 @@ function AddThreads({ addThread }) {
           <input type="text" id="title" placeholder="Title" onChange={(data) => setInputData(data)} />
           <input type="text" id="category" placeholder="Category" onChange={(data) => setInputData(data)} />
         </div>
-        <textarea name="input_thrads" id="body" cols="20" rows="10" placeholder="What's Happening" onChange={(data) => setInputData(data)} />
+        <textarea name="input_thrads" id="body" cols="20" rows="10" placeholder="Whats Happening" onChange={(data) => setInputData(data)} />
       </div>
       <div className="button__threads">
         <button onClick={onHandleSubmit} type="button">Post</button>

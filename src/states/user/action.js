@@ -1,7 +1,8 @@
+/* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import loading from '../../utils/customtoast';
-import api from '../../utils/api';
+import loading from '../../utils/customtoast.js';
+import api from '../../utils/api.js';
 
 const ActionType = {
   RECEIVE_USERS: 'RECEIVE_USERS',

@@ -21,6 +21,6 @@
     cursor: pointer;
 }
 
-.navbar__login > button.Login {
+.navbar__login > button.SignIn {
     display: none;
 }

@@ -1,7 +1,7 @@
+/* eslint-disable import/extensions */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import loading from '../../utils/customtoast';
-import api from '../../utils/api';
+import api from '../../utils/api.js';
 
 const ActionType = {
   SEE_LEADERBOARD: 'SEE_LEADERBOARD',
@@ -23,10 +23,11 @@ function asyncSeeLeaderboard() {
       const resp = await api.seeLeaderboard();
       dispatch(receiveLeaderboard(resp));
     } catch (error) {
-      loading(false, error.message);
+      // eslint-disable-next-line no-alert
+      window.alert(error.message);
     }
     dispatch(hideLoading());
   };
 }
 
-export { ActionType, asyncSeeLeaderboard };
+export { ActionType, asyncSeeLeaderboard, receiveLeaderboard };

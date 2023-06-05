@@ -1,6 +1,7 @@
+/* eslint-disable import/extensions */
 import { hideLoading, showLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
-import { setAuthUserActionCreator } from '../authUser/action';
+import api from '../../utils/api.js';
+import { setAuthUserActionCreator } from '../authUser/action.js';
 
 const ActionType = {
   SET_IS_PRELOAD: 'SET_IS_PRELOAD',
