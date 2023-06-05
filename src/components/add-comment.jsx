@@ -11,7 +11,8 @@ function addComment({ addKoment }) {
   };
 
   const onReplyComment = () => {
-    addKoment(inputContent);
+    const { content } = inputContent;
+    addKoment(content);
   };
   return (
     <div className="input__comment">
