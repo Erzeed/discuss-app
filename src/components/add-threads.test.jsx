@@ -1,3 +1,13 @@
+/**
+* test scenario for add thread
+*
+* - add thread function
+*  - dapat mengembalikan inputan title user
+*  - dapat mengembalikan inputan category user
+* -  dapat menangani ketika user melakukan tambah thread
+*
+*/
+
 import React from 'react';
 import {
   describe, it, expect, afterEach, vi,

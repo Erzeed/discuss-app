@@ -1,3 +1,11 @@
+/**
+* test scenario for leaderboar reducer test
+*
+* - leaderboard reducer
+*  - mengembalikan nilai state ketika nilai state tidak diketahui
+*  - mengembalikan nilai leaderboard ketika terdapat action SEE_LEADERBOARD
+*
+*/
 import { describe, it, expect } from 'vitest';
 import leaderboardReducer from './reducer';
 

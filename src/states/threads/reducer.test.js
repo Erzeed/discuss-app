@@ -1,3 +1,11 @@
+/**
+* test scenario for thread reducer test
+*
+* - thread reducer
+*  - mengembalikan nilai state ketika nilai state tidak diketahui
+*  - mengembalikan nilai thread ketika terdapat action RECEIVE_THREADS
+*
+*/
 import { describe, it, expect } from 'vitest';
 import threadReducer from './reducer';
 

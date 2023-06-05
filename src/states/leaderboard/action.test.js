@@ -1,3 +1,11 @@
+/**
+* test scenario for leaderboar action test
+*
+* - leaderboard function
+*  - dapat mengembalikan leaderboar dari api
+*  - dapat menangani ketika data dari server timeot/error
+*
+*/
 /* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
 import {

@@ -1,3 +1,12 @@
+/**
+* test scenario for taddcomment
+*
+* - addcomment function
+*  - dapat menangani inputan user dengan baik
+*  - dapat menangani ketika button post di klik user
+*
+*/
+
 import React from 'react';
 import {
   describe, it, expect, afterEach, vi,
