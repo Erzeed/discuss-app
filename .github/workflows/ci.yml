@@ -4,11 +4,7 @@ on:
   pull_request:
     branches:
       - main
-<<<<<<< HEAD
-
-=======
  
->>>>>>> 4c6ed7493eb8eae261812d00ec4c343afe2bc5a3
 jobs:
   automation-test-job:
     runs-on: ubuntu-latest
