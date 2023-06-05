@@ -6,7 +6,7 @@ function addComment({ addKoment }) {
   const onHandleChange = (text) => {
     setInputContent({
       ...inputContent,
-      [text.target.id]: text.target.value,
+      [text.target.id]: text.target.id,
     });
   };
 
