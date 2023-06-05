@@ -23,7 +23,7 @@ function AddThreads({ addThread }) {
     <div className="threads__container">
       <div className="header__threads">
         <div className="header__title">
-          <h2>Home App</h2>
+          <h2>Home</h2>
         </div>
       </div>
       <div className="input__threads">
