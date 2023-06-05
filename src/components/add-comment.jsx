@@ -6,13 +6,12 @@ function addComment({ addKoment }) {
   const onHandleChange = (text) => {
     setInputContent({
       ...inputContent,
-      [text.target.id]: text.target.id,
+      [text.target.id]: text.target.value,
     });
   };
 
   const onReplyComment = () => {
-    const { content } = inputContent;
-    addKoment(content);
+    addKoment(inputContent);
   };
   return (
     <div className="input__comment">
