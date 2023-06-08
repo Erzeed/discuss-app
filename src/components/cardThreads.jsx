@@ -56,7 +56,7 @@ function cardThreads({
           </div>
           <div className={`footer__tag ${category}`}>
             <p>{category === undefined ? '' : `#${category}`}</p>
-            <p>{`${totalComments} Komentar`}</p>
+            <p>{totalComments === undefined ? '' : `${totalComments} Komentar`}</p>
           </div>
         </div>
       </div>
