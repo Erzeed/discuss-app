@@ -27,7 +27,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <h1>Discuss App</h1>
+        <h1>Discuss</h1>
       </div>
       <div className="navbar__login">
         <button
