@@ -2,8 +2,8 @@
 * test scenario for leaderboar action test
 *
 * - leaderboard function
-*  - dapat mengembalikan leaderboar dari api
-*  - dapat menangani ketika data dari server timeot/error
+*  - should dispatch action correctly when data fetching success
+*  - should dispatch action and call alert correctly when data fetching failed
 *
 */
 /* eslint-disable import/extensions */

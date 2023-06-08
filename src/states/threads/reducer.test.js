@@ -1,15 +1,16 @@
 /**
-* test scenario for thread reducer test
+* test scenario for threads reducer test
 *
 * - thread reducer
-*  - mengembalikan nilai state ketika nilai state tidak diketahui
-*  - mengembalikan nilai thread ketika terdapat action RECEIVE_THREADS
-*
+*  - should return initial statate when given unknown action 
+*  - should return threads when given action RECEIVE_THREADS
+*  - should return the threads with the new threads when given by ADD_THREAD action
+*  - should return the category threads when given by FILTER_CATEGORY action
 */
 import { describe, it, expect } from 'vitest';
 import threadReducer from './reducer';
 
-describe('talkReducers function', () => {
+describe('threadsReducers function', () => {
   it('should return the initial state when given by unknown action', () => {
     // arrange
     const initialState = [];
@@ -28,7 +29,7 @@ describe('talkReducers function', () => {
     const action = {
       type: 'RECEIVE_THREADS',
       payload: {
-        thread: [
+        threads: [
           {
             id: 'thread-1',
             title: 'Thread Pertama',

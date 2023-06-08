@@ -1,3 +1,10 @@
+/**
+ * skenario test
+ *
+ * - asyncPopulateUsersAndThreads thunk
+ *  - should dispatch action correctly when data fetching success
+ *  - should dispatch action and call alert correctly when data fetching failed
+ */
 /* eslint-disable import/extensions */
 /* eslint-disable no-underscore-dangle */
 import {

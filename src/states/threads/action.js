@@ -37,15 +37,6 @@ function addThreadActionFilter(category) {
     },
   };
 }
-function toggleLikeThreadActionCreator({ threadId, userId }) {
-  return {
-    type: ActionType.TOGGLE_LIKE_THREAD,
-    payload: {
-      threadId,
-      userId,
-    },
-  };
-}
 
 function asyncAddThread({ title, body, category }) {
   return async (dispatch) => {
@@ -69,27 +60,10 @@ function filterByCategory(category) {
   };
 }
 
-function asyncToogleLikeThreads(threadId) {
-  return async (dispatch, getState) => {
-    const { authUser } = getState();
-    dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
-    dispatch(showLoading());
-    try {
-      await api.toggleLikeTalk(threadId);
-    } catch (error) {
-      loading(true, error.message);
-      dispatch(toggleLikeThreadActionCreator({ threadId, userId: authUser.id }));
-    }
-    dispatch(hideLoading());
-  };
-}
-
 export {
   ActionType,
   receiveThreadsActionCreator,
   addThreadActionCreator,
-  toggleLikeThreadActionCreator,
   asyncAddThread,
-  asyncToogleLikeThreads,
   filterByCategory,
 };

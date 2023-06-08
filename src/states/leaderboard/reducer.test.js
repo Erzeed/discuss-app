@@ -2,14 +2,14 @@
 * test scenario for leaderboar reducer test
 *
 * - leaderboard reducer
-*  - mengembalikan nilai state ketika nilai state tidak diketahui
-*  - mengembalikan nilai leaderboard ketika terdapat action SEE_LEADERBOARD
+*  - should return initial state when action unknown
+*  - should return data leaderboard when give action SEE_LEADERBOARD
 *
 */
 import { describe, it, expect } from 'vitest';
 import leaderboardReducer from './reducer';
 
-describe('talkReducers function', () => {
+describe('leaderboardReducers function', () => {
   it('should return the initial state when given by unknown action', () => {
     // arrange
     const initialState = [];
@@ -28,7 +28,7 @@ describe('talkReducers function', () => {
     const action = {
       type: 'SEE_LEADERBOARD',
       payload: {
-        leaderboards: [
+        leaderboard: [
           {
             user: {
               id: 'users-1',
