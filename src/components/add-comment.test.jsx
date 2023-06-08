@@ -2,9 +2,8 @@
 * test scenario for taddcomment
 *
 * - addcomment function
-*  - dapat menangani inputan user dengan baik
-*  - dapat menangani ketika button post di klik user
-*
+*  - should handle correctly  when user typing
+*  - should handle comment on thread detail when user click button post
 */
 
 import React from 'react';
@@ -36,7 +35,7 @@ describe('CommentInput component', () => {
   });
   //   // ... skenario pengujian lainnya
 
-  it('should call post function when post button is clicked', async () => {
+  it('should handle post comment when post button is clicked', async () => {
     // Arrange
     const mockdComment = vi.fn();
     render(<AddCommentInput addKoment={mockdComment} />);

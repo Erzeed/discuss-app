@@ -2,9 +2,10 @@
 * test scenario for add thread
 *
 * - add thread function
-*  - dapat mengembalikan inputan title user
-*  - dapat mengembalikan inputan category user
-* -  dapat menangani ketika user melakukan tambah thread
+*  - should handle typing correctly when user typing on title
+*  - should handle typing correctly when user typing on category
+*  - should handle typing correctly when user typing on content
+*  - should handle add thread when user click button post
 *
 */
 
@@ -61,7 +62,7 @@ describe('LoginInput component', () => {
   });
   //   // ... skenario pengujian lainnya
 
-  it('should call post function when post button is clicked', async () => {
+  it('should handle post add thread when post button is clicked', async () => {
     // Arrange
     const mockddPost = vi.fn();
     render(<AddThreadInput addThread={mockddPost} />);
