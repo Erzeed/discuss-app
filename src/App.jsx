@@ -50,7 +50,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/home" element={<Homepage />} />
+          <Route path="/" element={<Homepage />} />
           <Route path="/detailthreads/:id" element={<DetailThreads />} />
         </Routes>
       </main>

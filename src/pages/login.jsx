@@ -19,14 +19,14 @@ function login() {
 
   useEffect(() => {
     if (authUser) {
-      navigate('/home');
+      navigate('/');
     }
   }, [authUser]);
 
   const onLogin = () => {
     const { email, password } = dataUser;
     dispatch(asyncSetAuthUser({ email, password }));
-    navigate('/home');
+    navigate('/');
   };
 
   const onRegister = () => {
