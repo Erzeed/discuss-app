@@ -2,7 +2,7 @@
 * test scenario for threads reducer test
 *
 * - thread reducer
-*  - should return initial statate when given unknown action 
+*  - should return initial statate when given unknown action
 *  - should return threads when given action RECEIVE_THREADS
 *  - should return the threads with the new threads when given by ADD_THREAD action
 *  - should return the category threads when given by FILTER_CATEGORY action
